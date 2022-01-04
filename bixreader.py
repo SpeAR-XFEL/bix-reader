@@ -1,8 +1,25 @@
 import numpy as np
 import re
 
-def read(file):
-    f = open(file, "rb")
+def read(fname):
+    """
+    Read CST binary files into NumPy arrays.
+
+    Parameters
+    ----------
+
+    fname : str
+            File name
+    
+    Returns
+    -------
+    header : dict
+             Dictionary of decoded header fields
+    data : dict
+             Dictionary of data fields, each being a NumPy array
+    """
+
+    f = open(fname, "rb")
     magic = f.read(30)
 
     # Other versions are not supported
